@@ -51,7 +51,7 @@ nav li:hover {
 ============================= */
 
 main {
-  background-color: #49a6e9;
+  background-color: #f1f5f8;
   padding: 0 1.5em;
 }
 
@@ -81,7 +81,7 @@ h2,
   margin: 0;
 }
 
-.hex-value {
+.color-value {
   color: #49a6e9;
 }
 
@@ -96,4 +96,10 @@ button {
   border: 1.7px solid black;
   font-family: "Roboto", sans-serif;
   box-shadow: 2px 2px 2px 0.5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #222222;
+  color: #ffffff;
 }
