@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* =============================
+   header & Navigation
+============================= */
+
+header {
+  background-color: #ffffff;
+}
+
+h1 {
+  margin: 0;
+  color: #49a6e9;
+  font-size: 0.95rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 750px;
+  padding: 0.938em 1.5em;
+  letter-spacing: 0.1rem;
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 0.938em;
+  margin: 0;
+}
+
+nav li {
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+nav li:hover {
+  color: #49a6e9;
+}
+
+/* =============================
+   Main
+============================= */
+
+main {
+  background-color: #49a6e9;
+  padding: 0 1.5em;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1.9em;
+}
+
+.background-box {
+  background-color: #222222;
+  color: #ffffff;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+h2,
+.hex-value {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.hex-value {
+  color: #49a6e9;
+}
+
+button {
+  background-color: transparent;
+  padding: 1em 1.7em;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1.7px solid black;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 2px 2px 2px 0.5px rgba(0, 0, 0, 0.3);
+}
