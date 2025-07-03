@@ -1,8 +1,3 @@
-//HEX min #000000 max #FFFFFF
-//numbers from 0 to 9 + letters from a to f
-//random number from 0 to 9
-//random letter from a to f
-
 const simpleColors = ["#f15025", "red", "green", "rgba(133,122,200)"];
 const hexColorValues = [
   0,
@@ -34,24 +29,23 @@ function getRandomColorIndex(array) {
 }
 
 function getHexValue() {
-  let hexColor = 0;
+  let hexColor = "";
   for (let i = 1; i <= 6; i++) {
-    hexColor += i;
+    hexColor += hexColorValues[getRandomColorIndex(hexColorValues)];
   }
   return hexColor;
 }
 
 //Handles the Click me Btn
 button.addEventListener("click", () => {
-  getHexValue();
+  const hexColor = getHexValue();
   const randomNumberSimple = getRandomColorIndex(simpleColors);
-  const randomNumberHex = getRandomColorIndex(hexColorValues);
   if (isSimple) {
     main.style.backgroundColor = simpleColors[randomNumberSimple];
     colorValue.textContent = simpleColors[randomNumberSimple];
   } else {
-    main.style.backgroundColor = hexColorValues[randomNumberHex];
-    colorValue.textContent = `#${hexColorValues[randomNumberHex]}`;
+    main.style.backgroundColor = `#${hexColor}`;
+    colorValue.textContent = `#${hexColor}`;
   }
 });
 
