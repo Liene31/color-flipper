@@ -20,15 +20,13 @@ const hexColorValues = [
 const button = document.getElementById("btn");
 const main = document.getElementById("main");
 const colorValue = document.getElementById("color-value");
-const simpleLink = document.getElementById("simple-colors-link");
-const hexColorsLink = document.getElementById("hex-colors-link");
 let isSimple = true;
 
 function getRandomColorIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function getHexValue() {
+function generateRandomHexColor() {
   let hexColor = "";
   for (let i = 1; i <= 6; i++) {
     hexColor += hexColorValues[getRandomColorIndex(hexColorValues)];
@@ -36,25 +34,28 @@ function getHexValue() {
   return hexColor;
 }
 
+//Updates the bacground & color name
+function updateBackground(color) {
+  main.style.backgroundColor = color;
+  colorValue.textContent = color;
+}
+
 //Handles the Click me Btn
 button.addEventListener("click", () => {
-  const hexColor = getHexValue();
-  const randomNumberSimple = getRandomColorIndex(simpleColors);
+  const hexColor = generateRandomHexColor();
+  const randomSimpleColorIndex = getRandomColorIndex(simpleColors);
   if (isSimple) {
-    main.style.backgroundColor = simpleColors[randomNumberSimple];
-    colorValue.textContent = simpleColors[randomNumberSimple];
+    updateBackground(simpleColors[randomSimpleColorIndex]);
   } else {
-    main.style.backgroundColor = `#${hexColor}`;
-    colorValue.textContent = `#${hexColor}`;
+    updateBackground(`#${hexColor}`);
   }
 });
 
-//Handles the Simple link click
-simpleLink.addEventListener("click", function () {
-  isSimple = true;
-});
-
-// Handles the Hex link click
-hexColorsLink.addEventListener("click", function () {
-  isSimple = false;
+//Handle link clicks
+document.addEventListener("click", (e) => {
+  if (e.target.id === "simple-colors-link") {
+    isSimple = true;
+  } else if (e.target.id === "hex-colors-link") {
+    isSimple = false;
+  }
 });
