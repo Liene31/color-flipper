@@ -27,11 +27,12 @@ function getRandomColorIndex(array) {
 }
 
 function generateRandomHexColor() {
+  const hexLength = 6;
   let hexColor = "";
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= hexLength; i++) {
     hexColor += hexColorValues[getRandomColorIndex(hexColorValues)];
   }
-  return hexColor;
+  return `#${hexColor}`;
 }
 
 //Updates the bacground & color name
@@ -42,20 +43,20 @@ function updateBackground(color) {
 
 //Handles the Click me Btn
 button.addEventListener("click", () => {
-  const hexColor = generateRandomHexColor();
-  const randomSimpleColorIndex = getRandomColorIndex(simpleColors);
-  if (isSimple) {
-    updateBackground(simpleColors[randomSimpleColorIndex]);
-  } else {
-    updateBackground(`#${hexColor}`);
-  }
+  const color = isSimple
+    ? simpleColors[getRandomColorIndex(simpleColors)]
+    : generateRandomHexColor();
+
+  return updateBackground(color);
 });
 
 //Handle link clicks
 document.addEventListener("click", (e) => {
-  if (e.target.id === "simple-colors-link") {
+  const simpleModeId = "simple-colors-link";
+  const hexModeId = "hex-colors-link";
+  if (e.target.id === simpleModeId) {
     isSimple = true;
-  } else if (e.target.id === "hex-colors-link") {
+  } else if (e.target.id === hexModeId) {
     isSimple = false;
   }
 });
